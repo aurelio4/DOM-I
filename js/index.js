@@ -6,6 +6,8 @@ const siteContent = {
     "nav-item-4": "Features",
     "nav-item-5": "About",
     "nav-item-6": "Contact",
+    "nav-item-7": "Testing",
+    "nav-item-8": "Testing 2",
     "img-src": "img/logo.png"
   },
   "cta": {
@@ -18,13 +20,13 @@ const siteContent = {
     "features-content": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "about-h4":"About",
     "about-content": "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "middle-img-src": "img/mid-page-accent.jpg",
     "services-h4":"Services",
     "services-content": "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "product-h4":"Product",
     "product-content": "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "vision-h4":"Vision",
     "vision-content": "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "middle-img-src": "img/mid-page-accent.jpg",
   },
   "contact": {
     "contact-h4" : "Contact",
@@ -40,3 +42,49 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// nav items
+const navTag = document.querySelector("nav").getElementsByTagName("a");
+let newA = document.createElement('a');
+let newATwo = document.createElement('a');
+document.querySelector('nav').append(newA);
+document.querySelector('nav').prepend(newATwo);
+
+
+for(let i = 0; i < navTag.length; i++) {
+  navTag[i].innerText = siteContent.nav[`nav-item-${i+1}`]
+  navTag[i].style.color = 'green'
+}
+
+// cta section
+document.querySelector('h1').textContent = siteContent.cta["h1"];
+document.getElementById('cta-img').setAttribute('src', siteContent.cta["img-src"]);
+document.querySelector('button').textContent = siteContent.cta["button"];
+
+// main-content section
+const mainContentH = document.querySelectorAll('h4');
+mainContentH[0].textContent = siteContent["main-content"]["features-h4"]
+mainContentH[1].textContent = siteContent["main-content"]["about-h4"]
+mainContentH[2].textContent = siteContent["main-content"]["services-h4"]
+mainContentH[3].textContent = siteContent["main-content"]["product-h4"]
+mainContentH[4].textContent = siteContent["main-content"]["vision-h4"]
+
+const mainContentP = document.querySelectorAll('p');
+mainContentP[0].textContent = siteContent["main-content"]["features-content"]
+mainContentP[1].textContent = siteContent["main-content"]["about-content"]
+mainContentP[2].textContent = siteContent["main-content"]["services-content"]
+mainContentP[3].textContent = siteContent["main-content"]["product-content"]
+mainContentP[4].textContent = siteContent["main-content"]["vision-content"]
+
+document.getElementById("middle-img").setAttribute('src', siteContent["main-content"]["middle-img-src"]);
+
+// contact section
+document.querySelector('.contact h4').textContent = siteContent["contact"]["contact-h4"];
+
+const contactP = document.querySelectorAll('.contact p');
+contactP[0].textContent = siteContent.contact.address;
+contactP[1].textContent = siteContent.contact.phone;
+contactP[2].textContent = siteContent.contact.email;
+
+// footer
+document.querySelector('footer p').textContent = siteContent["footer"]["copyright"]
