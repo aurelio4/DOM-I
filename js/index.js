@@ -6,8 +6,6 @@ const siteContent = {
     "nav-item-4": "Features",
     "nav-item-5": "About",
     "nav-item-6": "Contact",
-    "nav-item-7": "Testing",
-    "nav-item-8": "Testing 2",
     "img-src": "img/logo.png"
   },
   "cta": {
@@ -45,16 +43,23 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 // nav items
 const navTag = document.querySelector("nav").getElementsByTagName("a");
-let newA = document.createElement('a');
-let newATwo = document.createElement('a');
-document.querySelector('nav').append(newA);
-document.querySelector('nav').prepend(newATwo);
-
 
 for(let i = 0; i < navTag.length; i++) {
   navTag[i].innerText = siteContent.nav[`nav-item-${i+1}`]
   navTag[i].style.color = 'green'
 }
+
+let newA = document.createElement('a');
+newA.textContent = "appended";
+newA.setAttribute('href', '#');
+newA.setAttribute('style', 'color: green')
+let newATwo = document.createElement('a');
+newATwo.textContent = "prepended";
+newATwo.setAttribute('href', '#');
+newATwo.setAttribute('style', 'color: green');
+const nav = document.querySelector('nav');
+nav.appendChild(newA);
+nav.prepend(newATwo);
 
 // cta section
 document.querySelector('h1').textContent = siteContent.cta["h1"];
